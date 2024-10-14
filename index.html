@@ -1,39 +1,90 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>LoveFeeders</title>
-    <!--<link rel="stylesheet" href="styles.css">-->
+    <link rel="stylesheet" href="assets/bootstrap.min.css" media="all">
+    <style>
+        body {
+            background-color: #25303a; /* #283037 #2e3b48 #25303a */
+        }
+        .btn-custom {
+            background-color: #F1C40F;
+            color: #25303a;
+        }
+        .btn-custom:hover {
+           background-color: #E67E22;
+           color: #FFFFFF;
+        }
+        .quote {
+            font-style: italic; /* Italicize the quote */
+            font-weight: bold; /* Make it bold for emphasis */
+            /*color: #FFA500;  Use a contrasting color, like orange */
+        }
+        .section-book {
+            background-color: #25303a; /* #283037 #2e3b48 #25303a */
+/*            background: radial-gradient(116.18% 118% at 50% 100%, rgba(99, 102, 241, 0.1) 0%, rgba(218, 70, 239, 0.05) 41.83%, rgba(241, 244, 253, 0.07) 82.52%);*/
+            padding: 20px; /* Optional padding for the section */
+        }
+        .section-book-content {
+            /* background-color: #e6eef2;  Background color for the content section  */
+            color: #fff;
+            padding: 20px; /* Optional padding for the content */
+            /*box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); Optional shadow for depth */
+            border-radius: .5em;
+        }
+        .section-book-content-title {
+            color: #F1C40F;
+        }
+
+        .section-book-content-subtitle {
+            color: #E74C3C;
+        }
+        .span-coming-soon {
+            border: none; /* Remove border */
+            display: flex; /* Align items */
+            align-items: center; /* Center vertically */
+            color:#E74C3C;
+        }
+    </style>
 </head>
 <body>
-    <header>
-        <h1>Welcome to LoveFeeders</h1>
-        <nav>
-            <ul>
-                <li><a href="#about">About</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
+    <section class="section-book">
+        <div class="container col-xxl-8 px-4 py-5">
+            <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
+                <div class="col-10 col-sm-8 col-lg-6">
+                    <img src="assets/book-cover-chobak-en.jpg" class="d-block mx-lg-auto img-fluid wp-image-1116" alt="" loading="lazy" width="800" height="905">
+                </div>
+                <div class="section-book-content col-lg-6"> <!-- Updated class name -->
+                    <div class="lc-block mb-3">
+                        <div editable="rich">
+                            <h1 class="fw-bold display-3 section-book-content-title">A Dog's Yada</h1>
+                            <h2 class="fw-bold display-6 section-book-content-subtitle">The Plastic Heart</h2>
+                            <p class="lead">Explore the enchanting world of “A Dog’s Yada,” a unique blend of science fiction and autobiography that balances the secular with the sacred. Imagine Alice in Wonderland on a spiritual quest—this isn’t just a story; it’s a transformative journey of faith and discovery.</p>
+                            <p>Join this unforgettable adventure through the eyes of Chobak, an engaging protagonist who reminds us that, as he puts it, <span class="quote">“Who would've guessed that being chummy with the Almighty could be a hoot?”</span> Inspired by the Hebrew term “yada,” meaning “intimate knowledge,” this book challenges you to deepen your relationship with God and enrich your spiritual walk.</p>
+                            <p>“A Dog’s Yada” offers a fresh take on discipleship and evangelism in an AI-driven world, weaving poetic insights with Scriptural truths. In Part One, debut author Jaret Pfluger skillfully navigates the complexities of the human heart, steering readers towards triumphant victory through the Lord Jesus Christ.</p>
+                            <p>Embrace this opportunity to deepen your faith and connection with God. Start your journey today!</p>
+                        </div>
+                    </div>
+                    <!--<div class="lc-block d-flex flex-column flex-sm-row justify-content-center justify-content-md-start">
+                        <a href="https://www.amazon.com" class="btn btn-custom btn-lg px-3 py-2 me-sm-3 me-lg-4 mb-3">Pre-Order Now</a>
+                    </div>-->
+                    <div class="lc-block d-flex flex-column flex-sm-row justify-content-center justify-content-md-start">
+                        <a href="https://www.amazon.com/dp/B0DJBJN5WL" class="btn btn-custom btn-lg px-3 py-2 me-sm-3 me-lg-4 mb-3">Pre-Order Now</a>
+                        <span class="px-3 py-2 mb-3 fs-4 span-coming-soon">
+                            Available October 22, 2024
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    <main>
-        <section id="about">
-            <h2>About LoveFeeders</h2>
-            <p>LoveFeeders description.</p>
-        </section>
 
-        <section id="contact">
-            <h2>Contact Us</h2>
-            <p>If you have any storiess, feel free to reach out!</p>
-            <p>Email: <a href="mailto:stories@lovefeeders.org">stories@lovefeeders.org</a></p>
-        </section>
-    </main>
-
-    <footer>
-        <p>&copy; 2024 Tigsus Ltd. All Rights Reserved.</p>
-        <p><a href="https://lovefeeders.org">Visit us at LoveFeeders.org</a></p>
-    </footer>
+    <script defer src="assets/bootstrap.bundle.min.js"></script>
+    <script defer src="assets/glightbox.min.js" onload="const lightbox = GLightbox({});"></script>
+    <!-- lazily load the gLightbox CSS file -->
+    <link rel="preload" href="assets/glightbox.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
 </body>
 </html>
-
