@@ -1,0 +1,272 @@
+/* =========================================
+   Narrative Sections (documentary-style)
+   ========================================= */
+
+/* --- Adjustable variables: tune to your palette --- */
+:root {
+    /* fallback to body text color if not set elsewhere */
+    --nf-accent-1: currentColor;         /* primary headline color */
+    --nf-accent-2: rgba(0,0,0,.65);      /* alternates for “inner voice” */
+    --nf-muted: rgba(0,0,0,.55);
+    --nf-measure: 72ch;
+    --nf-measure-tight: clamp(62ch, 5vw + 60ch, 70ch);
+}
+
+/* Make sure narrative sections breathe */
+.features-section.opening-hook,
+.features-section.narrative-block {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+    position: relative;
+}
+
+/* Constrain text width for readability */
+.narrative-measure {
+    max-width: var(--nf-measure);
+    margin-inline: auto;
+}
+
+/* Container controls spacing */
+.stacked-headlines {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;       /* vertical space between lines */
+    margin-bottom: 1.5rem;
+    max-width: 65ch;   /* keeps it readable */
+    margin-inline: auto;
+}
+
+/* Common line styling */
+.stacked {
+    font-weight: 700;
+    font-size: clamp(1.5rem, 3vw, 2.3rem);
+    line-height: 1.2;
+    margin: 0;
+}
+
+/* Left and right "voices" */
+.stacked.left {
+    text-align: left;
+    margin-left: 0;
+    color: var(--nf-accent-1, #1b3557); /* darker tone */
+}
+
+.stacked.right {
+    text-align: right;
+    margin-right: 1.5rem;               /* creates slight indentation */
+    color: var(--nf-accent-2, #555);    /* softer tone */
+    font-style: italic;                 /* optional: makes the "reply" feel different */
+}
+
+/* Mobile: reset indent so it doesn't crowd */
+@media (max-width: 576px) {
+    .stacked.right {
+        margin-right: 0;
+    }
+}
+
+/* Lede and narrative body */
+.lede {
+    font-size: clamp(1.1rem, 1.6vw, 1.35rem);
+    line-height: 1.55;
+    /*margin: 0 0 .75rem 0;*/
+    margin: 0 0 1.25rem 0;   /* was 0.75rem */
+    max-width: var(--nf-measure-tight);
+}
+.narrative {
+    font-size: clamp(1.02rem, 1.4vw, 1.18rem);
+    line-height: 1.65;
+    /*margin: 0 0 1.25rem 0;*/
+    margin: 0 0 1.5rem 0;    /* was 1.25rem */
+    max-width: var(--nf-measure-tight);
+}
+.muted { color: var(--nf-muted); }
+
+/* Alternate lede paragraph: documentary aside */
+.lede-alt {
+    color: var(--nf-accent-2, rgba(0,0,0,.65));
+    font-style: italic;
+    border-left: 3px solid currentColor;
+    padding-left: .85rem;
+    margin-top: .85rem;
+    /*margin-bottom: .85rem;*/
+    margin-bottom: 1.25rem;
+    /*max-width: var(--nf-measure-tight);*/
+}
+
+/*!* Optional: right-align on wide screens to feel like a reply *!*/
+/*@media (min-width: 768px) {*/
+/*    .lede-alt {*/
+/*        text-align: right;*/
+/*        border-left: 0;*/
+/*        border-right: 3px solid currentColor;*/
+/*        padding-left: 0;*/
+/*        padding-right: .85rem;*/
+/*    }*/
+/*}*/
+
+/* Eyebrow + plain titles for other sections (2–8) */
+.eyebrow {
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    font-size: .78rem;
+    opacity: .7;
+    margin: 0 0 .25rem 0;
+}
+.title-plain {
+    font-weight: 800;
+    line-height: 1.15;
+    margin: 0 0 1rem 0;
+    letter-spacing: -0.01em;
+    font-size: clamp(1.5rem, 3vw, 2.2rem);
+}
+
+/* Proof list bullets (clean, serious) */
+.proof-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1.25rem 0;
+    max-width: var(--nf-measure-tight);
+}
+.proof-list li {
+    position: relative;
+    padding-left: 1.4rem;
+    margin: 0 0 .6rem 0;
+}
+.proof-list li::before {
+    content: "—";
+    position: absolute;
+    left: 0; top: 0;
+    opacity: .65;
+}
+
+/* CTA row centered */
+.narrative-ctas {
+    display: flex;
+    justify-content: center;   /* CENTERED as requested */
+    align-items: center;
+    gap: .75rem;
+    flex-wrap: wrap;
+    text-align: center;        /* fallback if flex is overridden */
+    margin-top: .25rem;
+}
+
+/* Subtle top accent for the opening section to feel distinct */
+.features-section.opening-hook::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 50%;
+    transform: translateX(-50%);
+    width: min(96%, 72rem);
+    height: 3px;
+    background: linear-gradient(90deg, transparent, currentColor 40%, transparent);
+    opacity: .2;
+}
+
+/* Motion-reduction respect */
+@media (prefers-reduced-motion: reduce) {
+    .stacked-headlines .stacked::before,
+    .stacked-headlines .stacked::after {
+        transition: none !important;
+    }
+}
+
+/* Mobile tuning */
+@media (max-width: 768px) {
+    .narrative-measure { max-width: 90%; }
+}
+
+/* Give this section a little more air below the proof list */
+#why .proof-list { margin-bottom: 1rem; }
+
+/* Links inside proof list: inherit tone, underline on hover for clarity */
+.proof-list a {
+    color: inherit;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+}
+.proof-list a:hover,
+.proof-list a:focus { text-decoration-thickness: 2px; }
+
+/* Make the aside feel distinct but subtle */
+#why .lede-alt {
+    color: var(--nf-accent-2, rgba(0,0,0,.65));
+    font-style: italic;
+    border-left: 3px solid currentColor;
+    padding-left: .85rem;
+    margin-top: .85rem;
+    margin-bottom: .85rem;
+}
+
+/* Slightly tighten spacing under the CTA row */
+#why .narrative-ctas { margin-top: .5rem; }
+
+/* Dialogue-style stacked quotes */
+.stacked-quote {
+    font-size: 1rem;               /* same as body/narrative size */
+    font-weight: 600;              /* bold enough to stand out */
+    line-height: 1.5;
+    margin: 0 0 0.75rem 0;
+}
+
+.stacked-quote.left {
+    text-align: left;
+    color: var(--nf-accent-1, #1b3557);   /* darker tone */
+}
+
+.stacked-quote.right {
+    text-align: right;
+    color: var(--nf-accent-2, #555);      /* softer/lighter tone */
+    font-style: italic;                   /* optional: makes it feel like a reply */
+}
+
+/* Give the whole block a bit more vertical rhythm */
+.stacked-headlines {
+    margin: 1.25rem 0;
+}
+
+/* Feature card base */
+.feature-card {
+    border-radius: 8px;
+    padding: 1.5rem;
+    height: 100%;
+    color: #fff;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+/* Existing = confident dark green */
+.feature-card.existing {
+    background: radial-gradient(circle at top left, #134017, #1c6524);
+}
+
+/* Planned = lighter or alternate gradient */
+.feature-card.planned {
+    background: linear-gradient(135deg, #5C8D9A, #3a6f82);
+}
+
+/*  grounded brown/earth gradient */
+.feature-card.abundance {
+    background: linear-gradient(135deg, #5C8D9A, #3a6f82);
+    color: #fff;
+}
+
+.feature-card h3 {
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+    color: #fff;   /* keep headings white */
+    font-weight: 700;
+    text-align: center;
+}
+
+.feature-card li {
+    text-align: left;
+}
+.feature-card a {
+    color: #ffef9f;  /* warm highlight link */
+    text-decoration: underline;
+    text-underline-offset: 2px;
+}
+.feature-card a:hover {
+    color: #fff799;
+    text-decoration-thickness: 2px;
+}

@@ -1,0 +1,124 @@
+body {
+    background-color: #FFF1E6;
+    font-family: 'Arial', sans-serif;
+    color: #1D3557;
+}
+.hr-gradient-bar-trim {
+    height: 6px;
+    background: linear-gradient(to right, #F1A7A1, #E63946, #5C8D9A, #E63946, #F1A7A1);
+}
+.navbar {
+    background-color: #FFFFFF;
+}
+.navbar-brand, .nav-link {
+    color: #1D3557 !important;
+}
+.brand-text {
+    display: flex;
+    flex-direction: column;
+}
+.navbar-title {
+    font-size: 1.25rem;
+    font-weight: bold;
+}
+.navbar-tagline {
+    font-size: 0.95rem;
+    font-style: italic;
+    opacity: 0.85;
+}
+@media (max-width: 576px) {
+    .navbar-title {
+        font-size: 1rem;
+    }
+    .navbar-tagline {
+        font-size: 0.85rem;
+        opacity: 0.75;
+    }
+}
+.donations-banner {
+    background: radial-gradient(#134017, #1c6524);
+    color: #FFFFFF;
+    padding: 20px;
+    text-align: center;
+    color: #07730d;
+}
+.donations-banner a.btn:hover {
+    background-color: #C5373F; /* Slightly darker red on hover */
+}
+.hero-section {
+    background-color: #FFF9E3;
+    padding: 60px 20px;
+    text-align: center;
+}
+.hero-section h1 {
+    font-size: 3rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+.section-panel-primary {
+    padding: 40px 20px;
+}
+.section-panel-primary h2 {
+    font-size: 2.5rem;
+    color: #E63946;
+    margin-bottom: 15px;
+}
+.section-panel-primary p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+}
+blockquote.poem-block, blockquote.creed-block {
+    margin: 15px 0;
+    padding: 15px;
+    background-color: #FFF1E6;
+    font-style: italic;
+}
+blockquote.poem-block {
+    border-left: 6px solid #E63946;
+}
+blockquote.creed-block {
+    border-left: 8px solid #1D3557;
+}
+.values-section ul {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    padding-left: 20px;
+}
+.footer {
+    background-color: #1D3557;
+    color: #FFF1E6;
+    text-align: center;
+    padding: 20px;
+    position: relative;
+}
+.footer-trim {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 6px;
+    background: linear-gradient(to right, #F1A7A1, #E63946, #5C8D9A, #E63946, #F1A7A1);
+}
+.footer .list-unstyled {
+    margin: 10px 0 0;
+    display: flex;
+    gap: 15px;
+    list-style: none;
+}
+.footer .footer-link {
+    color: #A8DADC;
+    text-decoration: none;
+}
+.footer .footer-link:hover {
+    color: #FFF1E6;
+    text-decoration: underline;
+}
+.btn-primary {
+    background-color: #E63946;
+    border: none;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+.btn-primary:hover {
+    background-color: #C5373F;
+}
